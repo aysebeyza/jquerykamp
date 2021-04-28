@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <ul>
         <li>Lorem ipsum dolor sit.</li>
@@ -14,7 +16,7 @@
         <li>Voluptate veniam numquam amet.</li>
         <li id="oge5">Quis ex earum totam?</li>
         <li class="kirmizi">Nisi cumque facilis consectetur!</li>
-        <li>Magnam vitae doloribus recusandae!</li>
+        <li></li>
         <li>Omnis ea culpa aliquid.</li>
         <li title="bir açıklama">Aspernatur fugit dolorum maiores.</li>
         <li>Sed corporis ipsa id!</li>
@@ -22,25 +24,67 @@
     <p title="bir açıklama">
         Lorem ipsum <span class="kirmizi">dolor</span> sit amet.
     </p>
+    <span style="display: none"> bir numara</span>
+    <table>
+        <tr>
+            <td>TD #0</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>TD #2</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>TD#5</td>
+        </tr>
+    </table>
+
+    <div style="display: none;"> bu element gizlidir. </div>
+
+    <button onclick="goster()"> gizlileri göster</button>
+
     <script src="jquery-3.6.0.min.js"></script>
     <script>
         $("*").css({
-            "border":"3px solid black",
-            "margin":"3px"}); //her şeyi seç ve iki özellik verebiliriz
+            "border": "3px solid black",
+            "margin": "3px"
+        }); //her şeyi seç ve iki özellik verebiliriz
 
-      //  $(ul).css("list-style","none"); --> ul daki özellikleri kaldırır
+        //  $(ul).css("list-style","none"); --> ul daki özellikleri kaldırır
         $("li").append("  :)"); // hepsinin "sonuna" :) koydu
-        $(".kirmizi").css("color","red");
-        $("#oge5").css("text-decoration","underline");
-        $('[title="bir açıklama"]').css("background-color","yellow"); //title attribute'unda bir açıklama yazanları seç
+        $(".kirmizi").css("color", "red");
+        $("#oge5").css("text-decoration", "underline");
+        $('[title="bir açıklama"]').css("background-color", "yellow"); //title attribute'unda bir açıklama yazanları seç
         //çoklu seçim
         //id=oge5 ve claas=kirmizi olanların "başına"  + koy
         $("#oge5,.kirmizi").prepend("+  ")
         //paragrafın içindeki kirmizi classa özellik ver
-            $("p> .kirmizi").css("background-color","green");
+        $("p> .kirmizi").css("background-color", "green");
         //ul daki tüm li ler kardeştir oge5'in sonraki kardeşlerine özellik verelim prev~siblings
-        $("#oge5 ~ li").css("border-left","10px solid red");
-      
+        $("#oge5 ~ li").css("border-left", "10px solid red");
+
+
+
+
+        //------------------CONTENT FİLTERS--------------------------//
+
+
+        $("li:contains('dolor')").append("D");  //İçinde dolor kelimesi geçen li'lerin sonuna D koy
+        $("td:empty").text("bu kutu boştu ben doldurana KADAR");  //td deki boş olan kutulara bu metni yaz
+        $("table:has(tr)").css("background-color", "gray"); //tabledaki tr lerin arka planını gri yap
+        $("ul:parent").fadeTo(1500, 0.3); //ul un parentını soldur yavaşça
+
+        //--------------------VISIBILITY--------------------------------//
+
+        function goster() {
+            // bu kısım tüm gizlileri gösterir yorum satırları da çıkar  $(":hidden").show();
+            $("div:hidden").show();
+            $("span:hidden").show();
+        }
+    
+
     </script>
 </body>
+
 </html>
