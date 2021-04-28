@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Velit dolorem aperiam repudiandae!</li>
+        <li class="kirmizi"> Omnis, quaerat. Esse, iusto!</li>
+        <li>Voluptate veniam numquam amet.</li>
+        <li id="oge5">Quis ex earum totam?</li>
+        <li class="kirmizi">Nisi cumque facilis consectetur!</li>
+        <li>Magnam vitae doloribus recusandae!</li>
+        <li>Omnis ea culpa aliquid.</li>
+        <li title="bir açıklama">Aspernatur fugit dolorum maiores.</li>
+        <li>Sed corporis ipsa id!</li>
+    </ul>
+    <p title="bir açıklama">
+        Lorem ipsum <span class="kirmizi">dolor</span> sit amet.
+    </p>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $("*").css({
+            "border":"3px solid black",
+            "margin":"3px"}); //her şeyi seç ve iki özellik verebiliriz
+
+      //  $(ul).css("list-style","none"); --> ul daki özellikleri kaldırır
+        $("li").append("  :)"); // hepsinin "sonuna" :) koydu
+        $(".kirmizi").css("color","red");
+        $("#oge5").css("text-decoration","underline");
+        $('[title="bir açıklama"]').css("background-color","yellow"); //title attribute'unda bir açıklama yazanları seç
+        //çoklu seçim
+        //id=oge5 ve claas=kirmizi olanların "başına"  + koy
+        $("#oge5,.kirmizi").prepend("+  ")
+        //paragrafın içindeki kirmizi classa özellik ver
+            $("p> .kirmizi").css("background-color","green");
+        //ul daki tüm li ler kardeştir oge5'in sonraki kardeşlerine özellik verelim prev~siblings
+        $("#oge5 ~ li").css("border-left","10px solid red");
+      
+    </script>
+</body>
+</html>
